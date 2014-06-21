@@ -23,7 +23,7 @@ public class Player : MonoBehaviour {
 	} // rotateRight;
 
 	void Update () {
-		torque = rotateRight ? -1 : rotateLeft ? 1 : 0;
+		torque = rotateRight ? -50 : rotateLeft ? 50 : 0;
 	} // Update ();
 
 	public void FixedUpdate () {
