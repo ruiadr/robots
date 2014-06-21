@@ -5,7 +5,7 @@ public class Player : MonoBehaviour {
 
 	private bool _rotateLeft;
 	private bool _rotateRight;
-	private int torque;
+	private Vector3 torque;
 
 	void Start () {
 		rotateLeft = false;
@@ -23,11 +23,15 @@ public class Player : MonoBehaviour {
 	} // rotateRight;
 
 	void Update () {
-		torque = rotateRight ? -50 : rotateLeft ? 50 : 0;
+		torque = new Vector3 (
+			0.0f,
+			0.0f,
+			rotateRight ? -1.0f : rotateLeft ? 1.0f : 0.0f
+		);
 	} // Update ();
 
 	public void FixedUpdate () {
-		rigidbody2D.AddTorque (torque);
+		rigidbody.AddTorque (torque);
 	} // FixedUpdate ();
 
 }; // Player;
